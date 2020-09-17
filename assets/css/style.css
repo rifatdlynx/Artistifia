@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #999999;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5C5C5C;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+ul ,li,a {
+    font-family: "Montserrart" , sans-serif;
+    font-weight: 550;
+    font-size: 17px;
+    color: #818181;
+    text-decoration: none;
+    background-color: #0d0d0d;
+
+}
+
+.album_art {
+    margin-top: 30px;
+    margin-left: 275px;
+    display: flex;
+    
+}
+
+.single_album_art {
+    margin-left: 25px;
+}
+
+.single_album_art , img {
+    border-radius: 5px;
+}
+
+

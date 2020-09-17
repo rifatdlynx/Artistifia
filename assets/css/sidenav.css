@@ -1,0 +1,65 @@
+.sidenav {
+    height: 92.7%;
+    width: 250px;
+    background-color: #1f1f1f; /* Black */
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: fixed;
+    overflow-y:auto;
+    border-color: aliceblue;
+    display:grid;
+}
+
+/* The navigation menu links */
+
+.sidenav a {
+    padding: 4px 15px 4px 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    background-color: #1f1f1f;
+
+}
+
+.sidenav a.active {
+    background-color: #F5F5F5;
+    border-radius: 5px;
+
+}
+
+.sidenav a.active:hover {
+    color: #0d0d0d;
+
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+@media only screen and (min-width : 480px) {
+    .padder {
+        padding: 0% 0% 0% 45%;
+    }
+
+}
+
+.sidenav_style{
+    background-color: #1f1f1f;
+}
+
+.editable {
+    margin-left: 15px;
+    padding-left: 0px;
+    background-color: #1f1f1f;
+    border: 0px;
+}
+.editable:hover {
+    background-color: #1f1f1f;
+}
+
+table , tr , td {
+    border: 0px solid #FFF;
+}
