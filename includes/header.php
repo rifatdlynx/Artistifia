@@ -1,5 +1,5 @@
 <header>
-        <img class="logo" src="assets/images/logo/logo_artistifia.png" alt="logo">
+        <img class="logo" src="assets/img/logo/logo_artistifia.png" alt="logo">
         <nav>
             <ul>
                 <li><a class="active" href="#">Home</a></li>

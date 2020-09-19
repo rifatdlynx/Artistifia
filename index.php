@@ -10,18 +10,16 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css" media="screen">
     <link rel="stylesheet" type="text/css" href="assets/css/sidenav.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/css/footer.css" media="screen">
 </head>
 
 <body>
     <?php include('includes/header.php') ?>
     <?php include('includes/side_nav.php') ?>
-    <?php include('includes/footer.php') ?>
     
     
     <div class="album_art">
         <?php
-            for ($x=1;$x<=7;$x+=1) {
+            for ($x=1;$x<=8;$x+=1) {
                 echo "
                 <div class=\"single_album_art\">
                 <img src=\"assets/album_art/".$x.".jpg\">
@@ -35,7 +33,7 @@
     
     <div class="album_art">
         <?php
-            for ($x=9;$x>=3;$x-=1) {
+            for ($x=9;$x>=2;$x-=1) {
                 echo "
                 <div class=\"single_album_art\">
                 <img src=\"assets/album_art/".$x.".jpg\">
@@ -48,7 +46,7 @@
     
     <div class="album_art">
         <?php
-            for ($x=3;$x<=8;$x+=1) {
+            for ($x=3;$x<=9;$x+=1) {
                 echo "
                 <div class=\"single_album_art\">
                 <img src=\"assets/album_art/".$x.".jpg\">
