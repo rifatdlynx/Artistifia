@@ -1,21 +1,25 @@
-.log-in-section{
+.register-section{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
 }
 
-.log-in-text{
-    font-size: 3.5rem;
+.register-text{
+    font-size: 2.75rem;
     font-weight: bold;
     margin: 0;
 }
 
-.different-text{
-    color: rgb(92, 16, 136);
+.diff-text {
+    color: #37044ef1;
+    font-size: 3.5rem;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.login-form{
+
+.register-form{
     background-color: #b475e750;
     width: 35vw;
     max-width: 35%;
@@ -23,7 +27,7 @@
     border-radius: 20px;
 }
 
-.login-form h1 {
+.register-form h1 {
     text-align: center;
     font-size: 50px;
     margin-bottom: 50px;
@@ -64,12 +68,12 @@
 }
 
 @media (max-width: 900px){
-    .log-in-section{
+    .register-section{
         flex-direction: column;
         justify-content: center;
     }
 
-    .login-form{
+    .register-form{
         width: 80vw;
         max-width: inherit;
         margin: 2rem 0;
