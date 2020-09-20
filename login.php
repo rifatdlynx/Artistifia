@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="C:\Users\Hryddhi\Desktop\Artistifia\assets\css\styles.css" rel="stylesheet">
-    <link href="login.css" rel=" stylesheet">
+    <link href="assets\css\login_reg_style.css" rel="stylesheet">
+    <link href="assets\css\login.css" rel=" stylesheet">
     <title>Artistifia - Login</title>
 </head>
 <body class="container full-height-grow">
     <header class="main-header">
-        <a href="/assets/img/logo/logo_artistifia.png" class="logo">
-            <img class="logo" src="includes/assets/img/logo/logo_artistifia.png">
-            <div class="logo-name">Artistifia</div>
+        <a href="#" class="logo">
+            <img class="logo" src="assets/images/logo/logo_artistifia.png">
         </a>
     </header> 
     <section class="log-in-section">
@@ -30,7 +29,7 @@
 
                <button type="submit" class="btn">Login</button>
 
-            <a href="C:\Users\Hryddhi\Desktop\Artistifia\register\register.html">
+            <a href="register.php">
                 <button type="button" class="btn2">Register Now</button>
             </a>
            
