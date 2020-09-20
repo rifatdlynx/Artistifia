@@ -38,11 +38,23 @@ ul ,li,a {
 }
 
 
-@media only screen and (min-width : 480px) {
+@media only screen and (min-width : 400px) {
     .padder {
-        padding: 0% 0% 0% 42%;
+        padding: 0% 0% 0% 37.6%;
     }
 
+}
+
+.body_header {
+    padding-top: 90px;
+    padding-left: 300px;
+    color: #FFF;
+}
+
+.album_art_top {
+    padding-top: 25px;
+    margin-left: 275px;
+    display: flex;    
 }
 
 .album_art {
@@ -56,6 +68,11 @@ ul ,li,a {
     padding: 10px;
     background-color: #4f4f4f;
     border-radius: 5px;
+}
+
+.single_album_art img {
+    width: 130px;
+    height: 130px;
 }
 
 .single_album_art p{

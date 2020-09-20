@@ -9,5 +9,7 @@
             </ul>
         </nav>
         <div class="padder"></div>
+        <a href="#"><button class="account"><img src="assets/images/icon/00_account.png"></button></a>
+        <a href="#" class="username">Rifatul Islam</a>
         <a href="#"><button class="logout_btn">Log Out</button></a>
     </header>
