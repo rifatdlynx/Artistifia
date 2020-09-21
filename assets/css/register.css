@@ -1,0 +1,90 @@
+.register-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.register-text{
+    font-size: 2.75rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.diff-text {
+    color: #37044ef1;
+    font-size: 3.5rem;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.register-form{
+    background-color: #b475e750;
+    width: 35vw;
+    max-width: 35%;
+    padding: 2rem 4rem;
+    border-radius: 20px;
+}
+
+.register-form h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 50px;
+    padding: 10px 0;
+}
+
+.input-group{
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid;
+}
+
+.input-group i {
+    width: 16px;
+    padding: 9px 8px;
+    left: 0;
+    bottom: 30px;
+    float: left;
+    text-align: center;
+}
+
+.input-group:last-child{
+    margin-bottom: 0;
+}
+
+.input-group label{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input{
+    outline: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 90%;
+    float: left;
+    margin: 0 10px;
+}
+
+.input-group input:focus{
+    border-color: #2F303A;
+}
+
+@media (max-width: 900px){
+    .register-section{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .register-form{
+        width: 80vw;
+        max-width: inherit;
+        margin: 2rem 0;
+    }
+}
