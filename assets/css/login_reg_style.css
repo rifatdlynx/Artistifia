@@ -7,7 +7,10 @@
 body {
   padding: 0;
   margin: 0;
-  background: linear-gradient(-45deg, rgb(95, 95, 194), rgb(150, 32, 150), #EE7752, #E73C7E,  #23A6D5, #23D5AB, white);
+  background: linear-gradient(-35deg, rgb(95, 95, 194), rgb(150, 32, 150) #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400%, 400%;
+  position: relative;
+  animation: change 10s ease-in-out infinite;
   font-family: "Montserrart", sans-serif;
   font-size: 1.2rem;
   color: white;
@@ -79,4 +82,16 @@ body {
 
 .btn2:focus {
   background-color: rgb(98, 155, 155);
+}
+
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
