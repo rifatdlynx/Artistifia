@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets\css\login_reg_style.css" rel="stylesheet">
     <link href="assets\css\register.css" rel=" stylesheet">
+    <script src="https://kit.fontawesome.com/50b3ba473f.js" crossorigin="anonymous"></script>
     <title>Artistifia - Register</title>
 </head>
 <body class="container full-height-grow">
@@ -22,12 +23,15 @@
         <form class="register-form">
             <h1>Register</h1>
             <div class="input-group">
+                <i class="fas fa-user"></i>
                 <input type="text" placeholder="Name" name="" value="">
             </div>
             <div class="input-group">
+                <i class="fas fa-user"></i>
                 <input type="email" placeholder="Username" name="" value="">
             </div>
             <div class="input-group">
+                <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Password" name="" value="">
             </div>  
                

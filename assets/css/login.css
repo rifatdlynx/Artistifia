@@ -39,6 +39,15 @@
     border-bottom: 1px solid;
 }
 
+.input-group i {
+    width: 16px;
+    padding: 9px 8px;
+    left: 0;
+    bottom: 30px;
+    float: left;
+    text-align: center;
+}
+
 .input-group:last-child{
     margin-bottom: 0;
 }
