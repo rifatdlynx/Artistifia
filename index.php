@@ -1,87 +1,28 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php $title = "Artistifia - Home"; echo $title; ?></title>
-    <meta name = "description" content="The best place for streaming music.">
-    <link rel="icon" type="image/x-icon" href="assets/images/logo/logo.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/css/header.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/css/sidenav.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/css/footer.css" media="screen">
-</head>
 
-<body>
-    <?php include('includes/includes.php') ?>
+    <?php include('includes/header.php'); ?>
     
-    <h2 class="body_header">Recently Released</h2>
+    <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;">Albums</h2>
+    <div class="gridViewContainer" style="text-align: center;">
+    <?php
+    $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY release_date desc");
+
+    while($row = mysqli_fetch_array($albumQuery)) {
+        
+        echo "<div class='gridViewItem' 
+        style=\"display: inline-block; margin-right: 20px; width: 29%; max-width: 200px; min-width: 150px; margin-bottom: 20px; \">
+        <span role='link' tabindex='0'  onclick='location.href=\"album_song_view.php?album_id=".$row['id']. "\"'>
+            <img src=\"assets/". $row['album_art_path'] ."\" style=\"width: 100%;\">
+            <div class='gridViewInfo' 
+            style=\"color: white; font-weight: 300; text-align: center; padding: 5px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;\">"
+                . $row['name'] .
+            "</div>
+        </span>
+    </div>";
+
+    }
+    echo "</div></div></div>";
     
-    <div class="album_art_top">
-        <?php
-            for ($x=1;$x<=7;$x+=1) {
-                echo "
-                <div class=\"single_album_art\">
-                <img src=\"assets/album_art/".$x.".jpg\">
-                <p style= \" color : #FFF\"> Music Name " .$x. "
-                </div>
-                ";
-            }
-        ?>
+    ?>
     </div>
-    
-    
-    <div class="album_art">
-        <?php
-            for ($x=9;$x>=5;$x-=1) {
-                echo "
-                <div class=\"single_album_art\">
-                <img src=\"assets/album_art/".$x.".jpg\">
-                <p style= \" color : #FFF\"> Music Name " .$x. "
-                </div>
-                ";
-            }
-        ?>
-    </div>
-    
-    <div class="album_art">
-        <?php
-            for ($x=1;$x<=8;$x+=1) {
-                echo "
-                <div class=\"single_album_art\">
-                <img src=\"assets/album_art/".$x.".jpg\">
-                <p style= \" color : #FFF\"> Music Name " .$x. "
-                </div>
-                ";
-            }
-        ?>
-    </div>
-    
-    <div class="album_art">
-        <?php
-            for ($x=3;$x>=1;$x-=1) {
-                echo "
-                <div class=\"single_album_art\">
-                <img src=\"assets/album_art/".$x.".jpg\">
-                <p style= \" color : #FFF\"> Music Name " .$x. "
-                </div>
-                ";
-            }
-        ?>
-    </div>
-    
-    <div class="album_art">
-        <?php
-            for ($x=5;$x<=9;$x+=1) {
-                echo "
-                <div class=\"single_album_art\">
-                <img src=\"assets/album_art/".$x.".jpg\">
-                <p style= \" color : #FFF\"> Music Name " .$x. "
-                </div>
-                ";
-            }
-        ?>
-    </div>
-    
-</body>
+<?php include('includes/footer.php'); ?>
+/* openPage(\"album_song_view.php?album_id=" . $row['id'] . "\") */

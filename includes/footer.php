@@ -1,3 +1,4 @@
+
 <div class="footer_container">
     
     <div class="album_link">
@@ -22,5 +23,6 @@
     </div>
     <progress max="5" value="3" class="volume_bar"></progress>
 </div>
-
-
+</div>
+</body>
+</html>
