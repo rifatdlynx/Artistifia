@@ -24,5 +24,5 @@
     
     ?>
     </div>
-<?php include('includes/footer.php'); ?>
-/* openPage(\"album_song_view.php?album_id=" . $row['id'] . "\") */
+<?php/* include('includes/footer.php'); 
+ openPage(\"album_song_view.php?album_id=" . $row['id'] . "\") */ ?>

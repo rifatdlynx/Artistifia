@@ -2,7 +2,7 @@
 	ob_start();
 	session_start();
 
-	$con = mysqli_connect("localhost", "root", "", "Artistifia");
+	$con = mysqli_connect("localhost", "root", "", "artistifia");
 	
 	if(mysqli_connect_errno()) {
 		echo "Failed to connect: " . mysqli_connect_errno();

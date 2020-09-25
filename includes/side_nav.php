@@ -2,13 +2,18 @@
     <div style="background-color: #1f1f1f;">
         <table style="background-color: #1f1f1f;">
             <tr>
-                <td style=" background-color: #1f1f1f;"><a href="#" class="active" style="padding-right:30px;">Liked Songs</a></td>
-                <td style=" background-color: #1f1f1f;"><button class="editable" style="margin-top: 5px"><img src="assets/images/icon/liked_songs.png"></button></td>
+                <td style=" background-color: #1f1f1f;"><a href="#" class="active" style="padding-right:30px;">Albums</a></td>
+                <td style=" background-color: #1f1f1f;"><button class="editable" style="margin-top: 5px"><img src="assets/images/icon/album.png"></button></td>
             </tr>
             <tr>
-                <td style=" background-color: #1f1f1f; border-bottom:1px solid #fff;"><a href="#" style="margin-bottom: 5px">History</a></td>
-                <td style=" background-color: #1f1f1f; border-bottom:1px solid #fff;"><button class="editable" style="margin-bottom: 5px; padding-right:20px;"><img src="assets/images/icon/history.png"></button></td>
+                <td style=" background-color: #1f1f1f;"><a href="#" style="padding-right:30px;">Artists</a></td>
+                <td style=" background-color: #1f1f1f;"><button class="editable" style="margin-top: 5px"><img style=" background-color: #1f1f1f;" src="assets/images/icon/artists.png"></button></td>
             </tr>
+            <tr>
+                <td style=" background-color: #1f1f1f; border-bottom:1px solid #fff;"><a href="#" style="margin-bottom: 5px">Genre</a></td>
+                <td style=" background-color: #1f1f1f; border-bottom:1px solid #fff;"><button class="editable" style="margin-bottom: 5px; padding-right:20px;"><img  style=" background-color: #1f1f1f;" src="assets/images/icon/genre.png"></button></td>
+            </tr>
+            
             <tr>
             <tr>
                 <td style="padding-right:0px; background-color: #1f1f1f;"  ><a href="#"  style="margin-top: 5px">Create Playlist</a></td>
@@ -16,7 +21,7 @@
             </tr>
             
             <?php
-                for ($x = 1; $x <= 20; $x+=1) {
+                for ($x = 1; $x <= 3; $x+=1) {
                      echo "
                      
                      <tr>
