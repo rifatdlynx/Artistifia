@@ -1,5 +1,6 @@
 <!doctype html>
-<?php include('includes/mysqlConnection.php'); ?>
+<?php include('includes/mysqlConnection.php');
+    include('includes/userInSession.php');?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,7 +9,7 @@
     <title><?php $title = "Artistifia - Home"; echo $title; ?></title>
     <meta name = "description" content="The best place for streaming music.">
     <link rel="icon" type="image/x-icon" href="assets/images/logo/logo.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen"> 
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css" media="screen">
     <link rel="stylesheet" type="text/css" href="assets/css/sidenav.css" media="screen">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css" media="screen">
@@ -41,11 +42,11 @@ history.pushState(null, null, url);
         <a href="#" class="username">Rifatul Islam</a>
         <a href="#"><button class="logout_btn">Log Out</button></a>
     </header>
-    
-    
+
+
     <body>
-        
-        
+
+
         <div id="mainContainer">
 
 		<div id="topContainer" style ="min-height: 100%; width: 100%;">

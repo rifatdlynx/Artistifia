@@ -1,11 +1,12 @@
 
     <?php include('includes/header.php'); ?>
     
-    <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;">Albums</h2>
+    <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;"></h2>
     <div class="gridViewContainer" style="text-align: center;">
     <?php
-    $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY release_date desc");
-
+    /*$songQuery = mysqli_query($con, "SELECT songID FROM Listening_History ORDER BY dateListened desc Limit 7");
+    if(!$songQuery)
+    else{
     while($row = mysqli_fetch_array($albumQuery)) {
         
         echo "<div class='gridViewItem' 
@@ -16,10 +17,11 @@
             style=\"color: white; font-weight: 300; text-align: center; padding: 5px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;\">"
                 . $row['name'] .
             "</div>
-        </span>
-    </div>";
+          </span>
+        </div>";
 
-    }
+        }
+    }*/
     echo "</div></div></div>";
     
     ?>

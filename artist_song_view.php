@@ -10,15 +10,15 @@
     style = \"padding: 100px 0px 10px 30px; display: inline-block; width: 100%;\">
 
     <div class=\"leftSection\" 
-    style =\"width: 30%; float: left; max-width: 250px;\">
+    style =\"text-align: center; width: 100%; \">
 	<img src=\"assets/" .$artist['image_path']."\" style = \"width: 200px; height:200px; object-fit: cover;  border-radius: 50%; \">
 	</div>
 
     <div class=\"rightSection\"
-    style = \"width: 70%; float: left; padding: 5px 10px 5px 40px; box-sizing: border-box;\">   
-        <h1 style =\"margin-top: 0px; color: silver\">". $artist['name']. "</h1>
+    style = \"width: 100%;  padding: 5px 10px 5px 20px; box-sizing: border-box;\">   
+        <h1 style =\"text-align: center; margin-top: 0px; color: silver\">". $artist['name']. "</h1>
 		<p role=\"link\" tabindex=\"0\" ? style =\"color: #939393; font-weight: 200;\"></p>
-        <p style =\"color: #939393; font-weight: 200;\">";
+        <p style =\"text-align:center; color: #939393; font-weight: 200;\">";
         $songQuery = mysqli_query($con, "SELECT count(songs.id) AS sum FROM songs INNER JOIN albums ON songs.album = albums.id
                     WHERE albums.artist =". $artist_id);
         echo mysqli_fetch_array ($songQuery,  MYSQLI_ASSOC)['sum']." songs</p>
@@ -45,15 +45,15 @@
 			echo "<li  class='tracklistRow'>
                     <div class='trackCount'>
                         <span class='trackNumber'style=\"font-size: 15px;\">
-                        <audio id = 'Audio".$i."' src = \"assets/".$row['file_path']."\" ></audio>
-                        <img id ='play".$i."' src='assets/images/icon/play.png' onclick = 'play(".$i.", ".$row['songId'].")'>".$i."
+                        <audio class = 'Audio' id = 'Audio".$row['songId']."' src = \"assets/".$row['file_path']."\" ></audio>
+                        <img class = 'PlayButton' id ='".$row['songId']."' src='assets/images/icon/play.png'>".$i."
                         </span>
                     </div>
                     
                     <div id= 'songs' class='trackInfo' >
                         
                         <span class='trackName' style=\"font-size: 17px; color: #fff;\">" . $row['title'] . "</span>
-                        <span id ='streams".$i."' class='trackArtist' style=\"font-size: 14px;\">" . $row['streams'];
+                        <span id ='streams".$row['songId']."' class='trackArtist' style=\"font-size: 14px;\">" . $row['streams'];
                         
                         echo "</span>
                     </div>
@@ -69,6 +69,55 @@
         echo "</ul></div>";
         
         ?>
+<!--onclick = 'play(".$i.", ".$row['songId'].")'!-->
+<script>
+    var audio;
+    var plays;
+    var playbutton;
+    playbutton = $('.PlayButton');
+    if(playbutton.length>1) console.log("worked!");
+    else console.log("not worked!");
+    $('.PlayButton').on("click", function(event){
+        console.log(event.target.id);
+        var id = "Audio" + event.target.id;
+        audio = document.getElementById(id);
+
+        if(audio.paused){
+            $('.Audio').each(function () {
+                if (!this.paused &&  this.duration > 0) {
+                this.pause();
+                id = (this.id).substring(5);
+                console.log("id of song that was playing = " + id);
+                playbutton = document.getElementById(id);
+                playbutton.src = "assets/images/icon/pause.png";
+                playbutton.style.opacity = "20%";
+                }
+                });
+            audio.play();
+            event.target.src= "assets/images/icon/play.png";
+            event.target.style.opacity = "60%";
+        }
+        else {
+            audio.pause();
+            event.target.src= "assets/images/icon/pause.png";
+            event.target.style.opacity = "20%";
+        }
+        if(audio.currentTime === 0) {up(event.target.id);}; 
+    });
+
+
+    function up(id){
+        $.post("includes/updateStreams.php", {songId: id}, function(data){
+            var newStream = data;
+            plays = document.getElementById("streams" + id);
+            console.log(plays.innerHTML + " newStream = " + newStream);
+            plays.innerHTML = newStream;
+        });
+
+    };
+
+</script>
+<!--
 <script>
     var audio;
     var plays;
@@ -100,6 +149,7 @@
     
     
 </script>
+!-->
 <style>
                     .tracklistRow {
                         height: 5vh;
