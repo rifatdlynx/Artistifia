@@ -1,4 +1,4 @@
-<div class="sidenav" style = "margin: 100 0 0 0;">
+<div class="sidenav" >
     <div style="background-color: #1f1f1f;">
         <table style="background-color: #1f1f1f;">
             <tr >
