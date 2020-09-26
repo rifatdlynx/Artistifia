@@ -45,15 +45,15 @@
 			echo "<li  class='tracklistRow'>
                     <div class='trackCount'>
                         <span class='trackNumber'style=\"font-size: 15px;\">
-                        <audio id = 'Audio".$i."' src = \"assets/".$row['file_path']."\" ></audio>
-                        <img id ='play".$i."' src='assets/images/icon/play.png' onclick = 'play(".$i.", ".$row['songId'].")'>".$i."
+                        <audio class = 'Audio' id = 'Audio".$row['songId']."' src = \"assets/".$row['file_path']."\" ></audio>
+                        <img class = 'PlayButton' id ='".$row['songId']."' src='assets/images/icon/play.png'>".$i."
                         </span>
                     </div>
                     
                     <div id= 'songs' class='trackInfo' >
                         
                         <span class='trackName' style=\"font-size: 17px; color: #fff;\">" . $row['title'] . "</span>
-                        <span id ='streams".$i."' class='trackArtist' style=\"font-size: 14px;\">" . $row['streams'];
+                        <span id ='streams".$row['songId']."' class='trackArtist' style=\"font-size: 14px;\">" . $row['streams'];
                         
                         echo "</span>
                     </div>
@@ -69,6 +69,55 @@
         echo "</ul></div>";
         
         ?>
+<!--onclick = 'play(".$i.", ".$row['songId'].")'!-->
+<script>
+    var audio;
+    var plays;
+    var playbutton;
+    playbutton = $('.PlayButton');
+    if(playbutton.length>1) console.log("worked!");
+    else console.log("not worked!");
+    $('.PlayButton').on("click", function(event){
+        console.log(event.target.id);
+        var id = "Audio" + event.target.id;
+        audio = document.getElementById(id);
+
+        if(audio.paused){
+            $('.Audio').each(function () {
+                if (!this.paused &&  this.duration > 0) {
+                this.pause();
+                id = (this.id).substring(5);
+                console.log("id of song that was playing = " + id);
+                playbutton = document.getElementById(id);
+                playbutton.src = "assets/images/icon/pause.png";
+                playbutton.style.opacity = "20%";
+                }
+                });
+            audio.play();
+            event.target.src= "assets/images/icon/play.png";
+            event.target.style.opacity = "60%";
+        }
+        else {
+            audio.pause();
+            event.target.src= "assets/images/icon/pause.png";
+            event.target.style.opacity = "20%";
+        }
+        if(audio.currentTime === 0) {up(event.target.id);}; 
+    });
+
+
+    function up(id){
+        $.post("includes/updateStreams.php", {songId: id}, function(data){
+            var newStream = data;
+            plays = document.getElementById("streams" + id);
+            console.log(plays.innerHTML + " newStream = " + newStream);
+            plays.innerHTML = newStream;
+        });
+
+    };
+
+</script>
+<!--
 <script>
     var audio;
     var plays;
@@ -100,6 +149,7 @@
     
     
 </script>
+!-->
 <style>
                     .tracklistRow {
                         height: 5vh;

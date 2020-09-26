@@ -59,8 +59,8 @@
 			echo "<li  class='tracklistRow'>
                     <div class='trackCount'>
                         <span class='trackNumber'style=\"font-size: 15px;\">
-                        <audio id = 'Audio".$i."' src = \"assets/".$row['file_path']."\" ></audio>
-                        <img id ='play".$i."' src='assets/images/icon/play.png' onclick = 'play(".$i.", ".$row['id'].")'>".$row['track_no'].
+                        <audio class = 'Audio' id = 'Audio".$row['id']."' src = \"assets/".$row['file_path']."\" ></audio>
+                        <img class = 'PlayButton' id ='".$row['id']."' src='assets/images/icon/play.png' >".$row['track_no'].
                         "</span>
                     </div>
                     
@@ -84,25 +84,41 @@
         ?>
 <script>
     var audio;
-    function play(id, temp) {
-        audio = document.getElementById("Audio" + id);
-        var button = document.getElementById("play"+ id);
+    var plays;
+    
+    $('.PlayButton').on("click", function(event){
         
-        if(audio.paused) {
+        var id = "Audio" + event.target.id;
+        audio = document.getElementById(id);
+
+        if(audio.paused){
+            $('.Audio').each(function () {
+                if (!this.paused &&  this.duration > 0) {
+                this.pause();
+                id = (this.id).substring(5);
+                console.log("id of song that was playing = " + id);
+                var playbutton = document.getElementById(id);
+                playbutton.src = "assets/images/icon/pause.png";
+                playbutton.style.opacity = "20%";
+                }
+                });
             audio.play();
-            button.src= "assets/images/icon/play.png";
-            button.style.opacity = "60%";
+            event.target.src= "assets/images/icon/play.png";
+            event.target.style.opacity = "60%";
         }
         else {
             audio.pause();
-            button.src = "assets/images/icon/pause.png";
-            button.style.opacity = "20%";
+            event.target.src= "assets/images/icon/pause.png";
+            event.target.style.opacity = "20%";
         }
-        if(audio.currentTime === 0) {up(temp);};
+        if(audio.currentTime === 0) {up(event.target.id);}; 
+    });
+
+    function up(id){
+        $.post("includes/updateStreams.php", {songId: id});
+
     };
-    function up(temp){
-        $.post("includes/updateStreams.php", {songId: temp});
-    };
+
 </script>
 <style>
                     .tracklistRow {
