@@ -1,22 +1,15 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artistifia - Search</title>
-    <meta name = "description" content="The best place for streaming music.">
-    <link rel="icon" type="image/x-icon" href="assets/images/logo/logo.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/css/header.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/css/sidenav.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/css/footer.css" media="screen">
-</head>
+<link rel="stylesheet" href="assets/css/search.css">
 
 <body>
-    <?php include('includes/includes.php') ?>
-    
-    <h2 class="body_header">Looking For Somethings</h2>
-    
-    
+    <?php include('includes/header.php') ?>
+  
+    <form method = "post"> 
+    <div class="wrapper">
+        <div class="search_box">
+            <input type="text" name="search" placeholder="Looking for Somethings?">
+            <input type="image" src="assets/images/icon/search.png" alt="search" class="fa-search">
+        </div>
+    </div>
+    </form>
+      
 </body>

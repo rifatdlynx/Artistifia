@@ -30,10 +30,10 @@ history.pushState(null, null, url);
         <img class="logo" src="assets/images/logo/logo_artistifia.png" alt="logo">
         <nav>
             <ul>
-                <li><a class="active" href="index.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="browse.php">Browse</a></li>
                 <li><a href="search.php">Search</a></li>
-                <li><a href="editors_pick.php">Editor's Pick</a></li>
+                <li><a href="editors_pick.php">Top Charts</a></li>
             </ul>
         </nav>
         <div class="padder"></div>

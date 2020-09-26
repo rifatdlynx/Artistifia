@@ -2,4 +2,4 @@
     
     <h2 class="body_header">All Songs</h2>
     
-<?php include('includes/footer.php');?>
+<?php /*include('includes/footer.php'); */ ?>

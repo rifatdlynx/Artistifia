@@ -2,7 +2,7 @@
     <div style="background-color: #1f1f1f;">
         <table style="background-color: #1f1f1f;">
             <tr>
-                <td style=" background-color: #1f1f1f;"><a href="#" class="active" style="padding-right:30px;">Albums</a></td>
+                <td style=" background-color: #1f1f1f;"><a href="#" style="padding-right:30px;">Albums</a></td>
                 <td style=" background-color: #1f1f1f;"><button class="editable" style="margin-top: 5px"><img src="assets/images/icon/album.png"></button></td>
             </tr>
             <tr>
