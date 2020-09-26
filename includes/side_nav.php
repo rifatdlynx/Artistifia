@@ -13,7 +13,7 @@
             </tr>
             <tr>
                 <td style=" background-color: #1f1f1f; border-bottom:1px solid #fff;">
-                <a href="#" id='genre' style="margin-bottom: 5px">Genre</a></td>
+                <a href="Genre_list.php" id='genre' style="margin-bottom: 5px">Genre</a></td>
                 <td style=" background-color: #1f1f1f; border-bottom:1px solid #fff;"><button class="editable" style="margin-bottom: 5px; padding-right:20px;"><img  style=" background-color: #1f1f1f;" src="assets/images/icon/genre.png"></button></td>
             </tr>
             
