@@ -10,15 +10,15 @@
     style = \"padding: 100px 0px 10px 30px; display: inline-block; width: 100%;\">
 
     <div class=\"leftSection\" 
-    style =\"width: 30%; float: left; max-width: 250px;\">
+    style =\"text-align: center; width: 100%; \">
 	<img src=\"assets/" .$artist['image_path']."\" style = \"width: 200px; height:200px; object-fit: cover;  border-radius: 50%; \">
 	</div>
 
     <div class=\"rightSection\"
-    style = \"width: 70%; float: left; padding: 5px 10px 5px 40px; box-sizing: border-box;\">   
-        <h1 style =\"margin-top: 0px; color: silver\">". $artist['name']. "</h1>
+    style = \"width: 100%;  padding: 5px 10px 5px 20px; box-sizing: border-box;\">   
+        <h1 style =\"text-align: center; margin-top: 0px; color: silver\">". $artist['name']. "</h1>
 		<p role=\"link\" tabindex=\"0\" ? style =\"color: #939393; font-weight: 200;\"></p>
-        <p style =\"color: #939393; font-weight: 200;\">";
+        <p style =\"text-align:center; color: #939393; font-weight: 200;\">";
         $songQuery = mysqli_query($con, "SELECT count(songs.id) AS sum FROM songs INNER JOIN albums ON songs.album = albums.id
                     WHERE albums.artist =". $artist_id);
         echo mysqli_fetch_array ($songQuery,  MYSQLI_ASSOC)['sum']." songs</p>
