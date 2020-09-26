@@ -1,5 +1,6 @@
 <!doctype html>
-<?php include('includes/mysqlConnection.php'); ?>
+<?php include('includes/mysqlConnection.php'); 
+    include('includes/userInSession.php');?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -33,7 +34,7 @@ history.pushState(null, null, url);
                 <li><a class="active" href="index.php">Home</a></li>
                 <li><a href="browse.php">Browse</a></li>
                 <li><a href="search.php">Search</a></li>
-                <li><a href="editors_pick.php">Editor's Pick</a></li>
+                <li><a href="editors_pick.php">Top Chart</a></li>
             </ul>
         </nav>
         <div class="padder"></div>

@@ -1,8 +1,15 @@
 
-    <?php include('includes/header.php'); ?>
+    <?php include('includes/header.php'); 
+    echo "
+    <script>
+            console.log(\"clicked!\");
+            $ (\".active\").removeClass(\"active\");
+            $(\"#artists\").addClass(\"active\");
+        
+    </script>";?>
     
-    <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;">Albums</h2>
-    <div class="gridViewContainer" style="text-align: center;">
+    <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;">Artist</h2>
+    <div class="gridViewContainer" style="margin-left:30px;">
     <?php
     $albumQuery = mysqli_query($con, "SELECT * FROM artists ORDER BY name");
 
