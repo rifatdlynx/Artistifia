@@ -22,7 +22,8 @@
     <?php
         if(isset($_POST['search'])) {
             $search_keyword = mysqli_real_escape_string($con , $_POST['search']);
-            $search_result = mysqli_query($con , "SELECT * FROM songs WHERE title LIKE '%$search_keyword%' or featuring_artist LIKE '%$search_keyword%'");
+            $search_result = mysqli_query($con , "SELECT songs.id As songId, songs.title, albums.name AS album, artists.name AS artist, 
+        album_art_path, duration, file_path FROM songs INNER JOIN albums ON songs.album = albums.id INNER JOIN artists ON albums.artist = artists. id WHERE songs.title LIKE '%$search_keyword%' OR songs.featuring_artist LIKE '%$search_keyword%' OR albums.name LIKE '%$search_keyword%' OR artists.name LIKE '%$search_keyword%'");
             $search_query_result = mysqli_num_rows($search_result);
             $i=1;
             if($search_query_result > 0) {
@@ -32,17 +33,17 @@
     <ul class=\"tracklist\" 
     style=\" background-color: #2b2b2b\">";
                     
-                    echo "<li class='tracklistRow' style=\"padding: 5px 5px 5px 0px; margin-bottom: 5px; border-top: 1px solid #a0a0a0; border-bottom: 1px solid #a0a0a0;\">
+                    echo "<li class='tracklistRow' style=\"padding: 5px 10px 5px 0px; margin-bottom: 5px; border-top: 1px solid #a0a0a0; border-bottom: 1px solid #a0a0a0;\">
 					<div class='trackCount'>
-						<span class='trackNumber' style=\"padding: 0px 0px 0px 63px;\" > # </span>
+						<span class='trackNumber' style=\"padding: 0px 0px 0px 63px;\" > </span>
                     </div>
                     
-					<div class='trackInfo'>
+					<div class='trackInfo' style =\"margin: 0 0px 5px 10px; padding-left: 40px;\">
 						<span class='trackName'style=\"padding: 0px 0px 0px 10px;\"> Track Name </span>
 						
 					</div>
 					
-					<div class='trackDuration'>
+					<div class='trackDuration' style =\"\">
 						<span class='duration'> Duration </span>
                     </div>
                     
@@ -52,27 +53,24 @@
                 while($row = mysqli_fetch_array($search_result)) {
                     
                     
-                    echo "<ul class=\"tracklist\" 
-                    style=\" background-color: #2b2b2b\">   
-                    
-                    <li  class='tracklistRow'>
-                    <div class='trackCount'>
+                    echo "<li  class='tracklistRow' style = \"height: 9vh;\">
+                    <div class='trackCount' style= \"margin : 0 0px 0 0;\">
                         <span class='trackNumber'style=\"font-size: 15px;\">
-                        <audio class = 'Audio' id = 'Audio".$row['id']."' src = \"assets/".$row['file_path']."\" ></audio>
-                        <img class = 'PlayButton' id ='".$row['id']."' src='assets/images/icon/play.png' >".$row['track_no'].
-                        "</span>
+                        <audio class = 'Audio' id = 'Audio".$row['songId']."' src = \"assets/".$row['file_path']."\" ></audio>
+                        <img class = 'PlayButton' id ='".$row['songId']."' src='assets/images/icon/play.png' > </span>
                     </div>
                     
-                    <div id= 'songs' class='trackInfo' >
-                
-                        <span class='trackName' style=\"font-size: 17px; color: #fff;\">" . $row['title'] . "</span>";
-                        
-                        echo "</span>
+                    <div id= 'songs' class='trackInfo' style =\"margin: 0 0px 5px -10px;\">
+                        <img src = \"assets/".$row['album_art_path']."\" style = \"float: left; margin-right: 15px; ;width: 50px; height:50px; object-fit: cover; \">
+                        <span class='trackName' style=\"font-size: 17px; color: #fff;\">" . $row['title'] . "</span>
+                        <span class='trackArtist' style=\"font-size: 14px;\">" . $row['artist'];
+                        if(isset($row['featuring_artist'])) echo ", ".$row['featuring_artist'];
+                        echo "&#9702 ".$row['album']."</span>
                     </div>
                     
 					
-					<div class='trackDuration'>
-						<span class='duration' style=\"font-size: 15px;\">" . $row['duration'] . "</span>
+					<div class='trackDuration'\">
+						<span class='duration' style=\"font-size: 15px; \">" . $row['duration'] . "</span>
                     </div>
                     
 				</li>";
@@ -169,7 +167,6 @@
                         color: #fff;
                         margin-left: -4px;
                         margin-bottom: 7px;
-                        padding-left: 15px;
                      }
                     
                     .tracklistRow .trackInfo span {
