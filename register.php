@@ -1,17 +1,22 @@
+<?php include('includes/server.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php $title = "Artistifia - Register"; echo $title; ?></title>
+    <meta name = "description" content="The best place for streaming music.">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo/logo.ico">
     <link href="assets\css\login_reg_style.css" rel="stylesheet">
     <link href="assets\css\register.css" rel=" stylesheet">
     <script src="https://kit.fontawesome.com/50b3ba473f.js" crossorigin="anonymous"></script>
-    <title>Artistifia - Register</title>
 </head>
 <body class="container full-height-grow">
-    <header class="main-header">
-        <a href="assets/img/logo/logo_artistifia.png" class="logo">
-            <img class="logo" src="assets/images/logo/logo_artistifia.png">
+   <header class="main-header">
+        <a href="C:\xampp\htdocs\Artistifia\assets\img\logo\logo.png" class="logo">
+            <img class="logo" src="C:\xampp\htdocs\Artistifia\assets\img\logo\logo.png">
+            <div class="logo-name">Artistifia</div>
         </a>
     </header> 
     <section class="register-section">
@@ -20,29 +25,35 @@
             <span class="diff-text">amazing</span>
             music!
         </h1>
-        <form class="register-form">
+        <form class="register-form" action="register.php" method="POST">
+            <?php include('includes/errors.php') ?>
             <h1>Register</h1>
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Name" name="" value="">
+                <input type="text" placeholder="First Name" name="fname">
             </div>
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="email" placeholder="Username" name="" value="">
+                <input type="text" placeholder="Last Name" name="lname">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" name="username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope-square"></i>
+                <input type="email" placeholder="Email" name="email">
             </div>
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" name="" value="">
+                <input type="password" placeholder="Password" name="pass">
             </div>  
                
-                <button type="submit" class="btn2">Register Now</button>
+                <button type="submit" class="btn2" name="regbtn">Register Now</button>
 
-            <a href="login.php">
-                <button type="button" class="btn">Login</button>
-            </a>
-
-                
-        
+                <p>
+                    Already a user?<a href="login.php"><b>Login</b></a>
+                </p>
         </form>
     </section>  
 </body>

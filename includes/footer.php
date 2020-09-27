@@ -22,5 +22,6 @@
     </div>
     <progress max="5" value="3" class="volume_bar"></progress>
 </div>
-
-
+</div>
+</body>
+</html>
