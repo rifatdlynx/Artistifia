@@ -1,8 +1,20 @@
 
-    <?php include('includes/header.php'); ?>
+<?php include('includes/header.php');
+
+    session_start();
+    if(!isset($_SESSION['username'])) {
+        header('location: login.php');
+    }
+    /*if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['username']);
+		header("location: login.php");
+	}*/
+?>
     
     <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;"></h2>
     <div class="gridViewContainer" style="text-align: center;">
+    
     <?php
     /*$songQuery = mysqli_query($con, "SELECT songID FROM Listening_History ORDER BY dateListened desc Limit 7");
     if(!$songQuery)

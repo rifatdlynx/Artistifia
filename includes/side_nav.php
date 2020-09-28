@@ -26,14 +26,10 @@
             <?php
                 for ($x = 1; $x <= 3; $x+=1) {
                      echo "
-
                      <tr>
-
                         <td style= \"padding-right:0px; padding-bottom:3px; background-color: #1f1f1f;\">
                         <a href=\"#\">Playlist " , $x , "</a></td>
-
                         <td style=\" background-color: #1f1f1f;\"><button class=\"editable\"><img src=\"assets/images/icon/editable15px.png\"></button></td>
-
                     </tr>";
                 }
             ?>
@@ -41,4 +37,6 @@
     </div>
 
 
+
 </div>
+
