@@ -25,7 +25,7 @@
 
             <tr>
                 <td style= "padding-right:0px; padding-bottom:3px; background-color: #1f1f1f;">
-                <a href="#">User</a></td>
+                <a href="userDetails.php"><?php echo $_SESSION['username']; ?></a></td>
                 <td style=" background-color: #1f1f1f;"><button class="editable"><img src="assets/images/icon/01_account.png" style="width: 15px; height: 15px; background-color: #1f1f1f;"></button></td>
 
             </tr>
