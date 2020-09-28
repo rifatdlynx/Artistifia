@@ -70,6 +70,54 @@
     
    ?>
         
+        <script>
+    var audio;
+    var plays;
+    var playbutton;
+    playbutton = $('.PlayButton');
+    if(playbutton.length>1) console.log("worked!");
+    else console.log("not worked!");
+    $('.PlayButton').on("click", function(event){
+        console.log(event.target.id);
+        var id = "Audio" + event.target.id;
+        audio = document.getElementById(id);
+
+        if(audio.paused){
+            $('.Audio').each(function () {
+                if (!this.paused &&  this.duration > 0) {
+                this.pause();
+                id = (this.id).substring(5);
+                console.log("id of song that was playing = " + id);
+                playbutton = document.getElementById(id);
+                playbutton.src = "assets/images/icon/pause.png";
+                playbutton.style.opacity = "20%";
+                }
+                });
+            audio.play();
+            event.target.src= "assets/images/icon/play.png";
+            event.target.style.opacity = "60%";
+        }
+        else {
+            audio.pause();
+            event.target.src= "assets/images/icon/pause.png";
+            event.target.style.opacity = "20%";
+        }
+        if(audio.currentTime === 0) {up(event.target.id);}; 
+    });
+
+
+    function up(id){
+        $.post("includes/updateStreams.php", {songId: id}, function(data){
+            var newStream = data;
+            plays = document.getElementById("streams" + id);
+            console.log(plays.innerHTML + " newStream = " + newStream);
+            plays.innerHTML = newStream;
+        });
+
+    };
+
+</script>
+        
     </div> 
     
 </body>

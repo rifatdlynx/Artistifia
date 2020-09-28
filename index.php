@@ -34,6 +34,25 @@
 
         }
     }*/
+    
+        
+        $rand_query = mysqli_query($con, "SELECT DISTINCT songs.title , songs.id , songs.album , albums.album_art_path , albums.name FROM songs INNER JOIN albums ON songs.album = albums.id ORDER BY RAND() LIMIT 10;");
+    
+    while($row = mysqli_fetch_array($rand_query)) {
+        
+        echo "<div class='gridViewItem' 
+        style=\"display: inline-block; margin-right: 20px; width: 29%; max-width: 200px; min-width: 150px; margin-bottom: 20px; \">
+        <span role='link' tabindex='0'  onclick='location.href=\"album_song_view.php?album_id=".$row['id']. "\"'>
+            <img src=\"assets/". $row['album_art_path'] ."\" style=\"width: 100%;\">
+            <div class='gridViewInfo' 
+            style=\"color: white; font-weight: 300; text-align: center; padding: 5px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;\">"
+                . $row['name'] .
+            "</div>
+          </span>
+        </div>";
+
+        }
+    
     echo "</div></div></div>";
     
     ?>

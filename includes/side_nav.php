@@ -19,7 +19,7 @@
 
             <tr>
             <tr>
-                <td style="padding-right:0px; background-color: #1f1f1f;" ><a href="#" style="margin-top: 5px">Liked Songs</a></td>
+                <td style="padding-right:0px; background-color: #1f1f1f;" ><a href="liked_songs.php" style="margin-top: 5px">Liked Songs</a></td>
                 <td style=" background-color: #1f1f1f;"><button class="editable" style="margin-top: 5px"><img src="assets/images/icon/liked_songs.png"></button></td>
             </tr>
 
