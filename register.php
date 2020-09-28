@@ -14,9 +14,8 @@
 </head>
 <body class="container full-height-grow">
    <header class="main-header">
-        <a href="C:\xampp\htdocs\Artistifia\assets\img\logo\logo.png" class="logo">
-            <img class="logo" src="C:\xampp\htdocs\Artistifia\assets\img\logo\logo.png">
-            <div class="logo-name">Artistifia</div>
+        <a href="/" class="logo">
+            <img class="logo" src="assets/images/logo/logo_artistifia_login.png">
         </a>
     </header> 
     <section class="register-section">
@@ -52,7 +51,7 @@
                 <button type="submit" class="btn2" name="regbtn">Register Now</button>
 
                 <p>
-                    Already a user?<a href="login.php"><b>Login</b></a>
+                    Already a user?<a href="login.php"> <b>Login</b></a>
                 </p>
         </form>
     </section>  
