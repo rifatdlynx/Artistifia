@@ -1,4 +1,6 @@
 
+
+
 <!doctype html>
 <?php include('includes/mysqlConnection.php');
     include('includes/userInSession.php');?>
@@ -53,5 +55,4 @@ history.pushState(null, null, url);
 		<div id="topContainer" style ="min-height: 100%; width: 100%;">
         <?php include('includes/side_nav.php') ?>
 			<div id="mainViewContainer" style ="margin-left: 220px; padding-bottom: 90px; width: calc(100% - 220px);">
-
 				<div id="mainContent" style = "padding: 0 20px;">
