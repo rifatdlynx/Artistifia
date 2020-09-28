@@ -13,11 +13,6 @@
                                                INNER JOIN artists ON albums.artist = artists. id 
                                                ORDER BY streams DESC LIMIT 20");
             
-            
-        if(mysqli_num_rows($top_song_query) == 0) {
-            echo "<span class='noResults'>No songs found</span>";
-        }
-            
             else if(mysqli_num_rows($top_song_query) > 0) {
                 
                 echo "
