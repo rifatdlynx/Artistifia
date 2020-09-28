@@ -14,7 +14,7 @@
 <body class="container full-height-grow">
     <header class="main-header">
         <a href="/" class="logo">
-            <img src="assets/images/logo/logo_artistifia_login.png">
+            <img src="assets/images/logo/logo_artistifia_login.png" style="margin-top: 80px;margin-bottom: -100px;">
         </a>
     </header> 
     <section class="log-in-section">
@@ -37,7 +37,7 @@
                <button type="submit" class="btn" name="loginbtn">Login</button>
 
                <p>
-                   Not a member yet?<a href="register.php"> <b>Register</b></a>
+                   Not a member yet?<a href="register.php" style="text-decoration: none;"> <b>Register</b></a>
                 </p>
            
             
