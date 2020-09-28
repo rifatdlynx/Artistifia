@@ -1,9 +1,7 @@
-
-
-
 <!doctype html>
 <?php include('includes/mysqlConnection.php');
-    include('includes/userInSession.php');?>
+    include('includes/userInSession.php');
+?>
 <html>
 <head>
     <meta charset="utf-8">
