@@ -7,7 +7,7 @@
     <form action="search_result.php" method = "post"> 
     <div class="wrapper">
         <div class="search_box">
-            <input type="text" name="search" placeholder="Looking for Somethings?">
+            <input type="text" name="search" placeholder="Looking For Somethings...?" onfocus="this.value = this.value">
             <input type="image" src="assets/images/icon/search.png" alt="search_submit" class="fa-search">
         </div>
     </div>

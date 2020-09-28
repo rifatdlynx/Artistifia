@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artistifia -  Editor's Pick</title>
+    <title>Artistifia -  Top Songs</title>
     <meta name = "description" content="The best place for streaming music.">
     <link rel="icon" type="image/x-icon" href="assets/images/logo/logo.ico">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen">
@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <?php include('includes/includes.php') ?>
+    <?php include('includes/header.php') ?>
     
-    <h2 class="body_header">Hand Picked By Us, Only For You</h2>
+    <h2 class="body_header">Top Songs</h2>
     
 </body>
