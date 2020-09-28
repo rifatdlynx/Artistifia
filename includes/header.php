@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <?php include('includes/mysqlConnection.php');
     include('includes/userInSession.php');?>
@@ -39,9 +42,9 @@ history.pushState(null, null, url);
         </nav>
         <div class="padder"></div>
         <a href="#"><button class="account"><img src="assets/images/icon/00_account.png"></button></a>
-        <a href="#" class="username">Rifatul Islam</a>
-        <a href="#"><button class="logout_btn">Log Out</button></a>
-    </header>
+        <a href="#" class="username"><?php echo $_SESSION['username']; ?></a>
+        <a href="logout.php"><button class="logout_btn">Log Out</button></a>
+</header>
 
 
     <body>
@@ -52,5 +55,4 @@ history.pushState(null, null, url);
 		<div id="topContainer" style ="min-height: 100%; width: 100%;">
         <?php include('includes/side_nav.php') ?>
 			<div id="mainViewContainer" style ="margin-left: 220px; padding-bottom: 90px; width: calc(100% - 220px);">
-
 				<div id="mainContent" style = "padding: 0 20px;">

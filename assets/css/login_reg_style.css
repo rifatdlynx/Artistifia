@@ -10,7 +10,7 @@ body {
   background: linear-gradient(-35deg, rgb(95, 95, 194), rgb(150, 32, 150), #EE7752, #E73C7E, #23A6D5, #23D5AB);
   background-size: 400%, 400%;
   position: relative;
-  animation: change 60s ease-in-out infinite;
+  animation: change 50s ease-in-out infinite;
   font-family: "Montserrart", sans-serif;
   font-size: 1.2rem;
   color: white;
@@ -84,6 +84,24 @@ body {
   background-color: rgb(98, 155, 155);
 }
 
+.errors {
+  width: 92%;
+  margin: 0px auto;
+  padding: 10px;
+  border: 1px solid  #982ca7;
+  color: #992ca746;
+  background: #AD7CB3;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.success {
+  color: #dfebdff3; 
+  background: #dff0d8; 
+  border: 1px solid #dcebddf8;
+  margin-bottom: 20px;
+}
+
 @keyframes change {
   0% {
     background-position: 0 50%;
@@ -95,3 +113,4 @@ body {
     background-position: 0 50%;
   }
 }
+
