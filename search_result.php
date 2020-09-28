@@ -65,7 +65,7 @@
                         <span class='trackName' style=\"font-size: 17px; color: #fff;\">" . $row['title'] . "</span>
                         <span class='trackArtist' style=\"font-size: 14px;\">" . $row['artist'];
                         if(isset($row['featuring_artist'])) echo ", ".$row['featuring_artist'];
-                        echo "&#9702 ".$row['album']."</span>
+                        echo " &#8226 ".$row['album']."</span>
                     </div>
                     
 					
@@ -144,7 +144,7 @@
                     
                     .tracklistRow .trackCount {
                         
-                        width: 18%;
+                        width: 12%;
                         float: left;
                     }
                     
@@ -153,8 +153,8 @@
                     }
                     
                     .tracklistRow .trackCount img {
-                        margin: 0 30px -5px 0px;
-                        width: 20px;
+                        margin: 15px 0px -5px 40px;
+                        width: 25px;
                         cursor: pointer;
                         opacity : 10%;
                     }
