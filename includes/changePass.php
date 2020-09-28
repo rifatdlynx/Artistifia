@@ -23,7 +23,7 @@ $newPassword2 = $_POST['newPassword2'];
 
 $oldPass = md5($oldPassword);
 
-$passwordCheck = mysqli_query($con, "SELECT * FROM users WHERE username=".$username". AND password=".$oldPass);
+$passwordCheck = mysqli_query($con, "SELECT * FROM users WHERE username='".$username."' AND password='".$oldPass."'");
 if(mysqli_num_rows($passwordCheck) != 1) {
 	echo "Password is incorrect";
 	exit();

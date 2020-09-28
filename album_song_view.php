@@ -2,8 +2,8 @@
     <?php 
     $album_id = $_GET['album_id'];
     
-    $albumQuery = mysqli_query($con, "SELECT albums.name AS album, artists.name AS artist, artists.id AS bleh, album_art_path FROM albums 
-    INNER JOIN artists ON albums.artist = artists. id WHERE albums.id =".$album_id );
+    $albumQuery = mysqli_query($con, "SELECT albums.name AS album, artists.name AS artist, artists.id AS bleh, album_art_path
+        FROM albums INNER JOIN artists ON albums.artist = artists. id WHERE albums.id =".$album_id );
     $album = mysqli_fetch_array ($albumQuery,  MYSQLI_ASSOC);
     
 
@@ -35,7 +35,9 @@
     <ul class=\"tracklist\" 
     style=\" background-color: #2b2b2b\">";
 		
-		$songQuery = mysqli_query($con, "SELECT * FROM songs WHERE album =". $album_id." ORDER BY track_no");
+		$songQuery = mysqli_query($con, "SELECT *, CASE WHEN songs.id IN (Select songs.id FROM songs INNER JOIN playlist_songs
+        ON songs.id = playlist_songs.sid WHERE playlist_songs.pid = ".$_SESSION['PlaylistId'].") THEN True ELSE False END AS Fav  
+        FROM songs WHERE album =". $album_id." ORDER BY track_no");
         
         echo "<li class='tracklistRow' style=\"padding: 5px 5px 5px 0px; margin-bottom: 5px; border-top: 1px solid #a0a0a0; border-bottom: 1px solid #a0a0a0;\">
 					<div class='trackCount'>
@@ -73,53 +75,22 @@
                     </div>
                     
 					
-					<div class='trackDuration'>
-						<span class='duration' style=\"font-size: 15px;\">" . $row['duration'] . "</span>
+                    <div class='trackDuration'>
+                        <span class='duration' style=\"font-size: 15px;\">" . $row['duration'] . 
+                        "</span>
                     </div>
+                    <div class = 'trackDuration' style = \"padding-top:-2px; margin-top:-5px;\">";
+                    if($row['Fav']) echo "<img class ='heart' id=heart". $row['id']." src = 'assets/images/icon/close-heart.png'>";
+                    else echo "<img class ='heart' id =heart".$row['id']." src = 'assets/images/icon/open-heart.webp'>";
+                    echo "</div>
+                    
                     
 				</li>";
                 $i++;
 		}
         echo "</ul>";
         ?>
-<script>
-    var audio;
-    var plays;
-    
-    $('.PlayButton').on("click", function(event){
-        
-        var id = "Audio" + event.target.id;
-        audio = document.getElementById(id);
-
-        if(audio.paused){
-            $('.Audio').each(function () {
-                if (!this.paused &&  this.duration > 0) {
-                this.pause();
-                id = (this.id).substring(5);
-                console.log("id of song that was playing = " + id);
-                var playbutton = document.getElementById(id);
-                playbutton.src = "assets/images/icon/pause.png";
-                playbutton.style.opacity = "20%";
-                }
-                });
-            audio.play();
-            event.target.src= "assets/images/icon/play.png";
-            event.target.style.opacity = "60%";
-        }
-        else {
-            audio.pause();
-            event.target.src= "assets/images/icon/pause.png";
-            event.target.style.opacity = "20%";
-        }
-        if(audio.currentTime === 0) {up(event.target.id);}; 
-    });
-
-    function up(id){
-        $.post("includes/updateStreams.php", {songId: id});
-
-    };
-
-</script>
+<script src = "includes/PlayAndLikeSong.js"></script>
 <style>
                     .tracklistRow {
                         height: 5vh;
@@ -132,13 +103,11 @@
                     }
                     
                     .tracklistRow span {
-                        
                         color: #939393;
                         font-weight: 200;
                     }
                     
                     .tracklistRow .trackCount {
-                        
                         width: 18%;
                         float: left;
                     }
@@ -146,7 +115,12 @@
                     .tracklistRow .trackCount span {
                         visibility: visible;
                     }
-                    
+
+                    .heart {
+                        width: 35px;
+                        cursor: pointer;
+                        
+                    }
                     .tracklistRow .trackCount img {
                         margin: 0 30px -5px 0px;
                         width: 20px;
@@ -164,15 +138,17 @@
                         margin-bottom: 7px;
                         padding-left: 15px;
                      }
-                    
+                    .trackInfo {
+                        width: 40%;
+                    }
                     .tracklistRow .trackInfo span {
                         display: block;
                     }
                     
                     .tracklistRow .trackDuration {
-                        width: 12%;
+                        width: 8%;
                         float: left;
-                        text-align: right;
+                        text-align: center;
                     }
                     
 
