@@ -19,24 +19,18 @@
 
             <tr>
             <tr>
-                <td style="padding-right:0px; background-color: #1f1f1f;" ><a href="#" style="margin-top: 5px">Create Playlist</a></td>
-                <td style=" background-color: #1f1f1f;"><button class="editable" style="margin-top: 5px"><img src="assets/images/icon/create_playlist.png"></button></td>
+                <td style="padding-right:0px; background-color: #1f1f1f;" ><a href="#" style="margin-top: 5px">Liked Songs</a></td>
+                <td style=" background-color: #1f1f1f;"><button class="editable" style="margin-top: 5px"><img src="assets/images/icon/liked_songs.png"></button></td>
             </tr>
 
-            <?php
-                for ($x = 1; $x <= 3; $x+=1) {
-                     echo "
-                     <tr>
-                        <td style= \"padding-right:0px; padding-bottom:3px; background-color: #1f1f1f;\">
-                        <a href=\"#\">Playlist " , $x , "</a></td>
-                        <td style=\" background-color: #1f1f1f;\"><button class=\"editable\"><img src=\"assets/images/icon/editable15px.png\"></button></td>
-                    </tr>";
-                }
-            ?>
+            <tr>
+                <td style= "padding-right:0px; padding-bottom:3px; background-color: #1f1f1f;">
+                <a href="#">User</a></td>
+                <td style=" background-color: #1f1f1f;"><button class="editable"><img src="assets/images/icon/01_account.png" style="width: 15px; height: 15px; background-color: #1f1f1f;"></button></td>
+
+            </tr>
         </table>
     </div>
 
 
-
 </div>
-
