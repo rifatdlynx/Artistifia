@@ -35,7 +35,7 @@ history.pushState(null, null, url);
                 <li><a href="index.php">Home</a></li>
                 <li><a href="browse.php">Browse</a></li>
                 <li><a href="search.php">Search</a></li>
-                <li><a href="editors_pick.php">Top Charts</a></li>
+                <li><a href="top_chart.php">Top Charts</a></li>
             </ul>
         </nav>
         <div class="padder"></div>
