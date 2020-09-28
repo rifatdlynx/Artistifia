@@ -1,4 +1,5 @@
-<?php include('includes/header.php'); ?>
+<?php include('includes/header.php');
+    include('includes/LikedSongs.php'); ?>
     <?php 
     $genre_id = $_GET['genre_id'];
     
@@ -29,8 +30,10 @@
     style=\" background-color: #2b2b2b\">";
 		
 		$songQuery = mysqli_query($con, "SELECT songs.id As songId, songs.title, albums.name AS album, artists.name AS artist, 
-        album_art_path, duration, file_path FROM songs INNER JOIN albums ON songs.album = albums.id INNER JOIN artists ON albums.artist = artists. id 
-        WHERE songs.genre =".$genre_id." ORDER BY streams desc");
+        album_art_path, duration, file_path, CASE WHEN songs.id IN (Select songs.id FROM songs INNER JOIN playlist_songs ON 
+        songs.id = playlist_songs.sid WHERE playlist_songs.pid = ".$_SESSION['PlaylistId'].") THEN True ELSE False END AS Fav FROM songs INNER JOIN albums 
+        ON songs.album = albums.id INNER JOIN artists ON albums.artist = artists. id WHERE 
+        songs.genre =".$genre_id." ORDER BY streams desc");
         
         echo "<li class='tracklistRow' style=\"padding: 5px 10px 5px 0px; margin-bottom: 5px; border-top: 1px solid #a0a0a0; border-bottom: 1px solid #a0a0a0;\">
 					<div class='trackCount'>
@@ -71,50 +74,17 @@
 					<div class='trackDuration'\">
 						<span class='duration' style=\"font-size: 15px; \">" . $row['duration'] . "</span>
                     </div>
-                    
+                    <div class = 'trackDuration' style = \"padding-top:-2px; margin-top:-5px;\">";
+                    if($row['Fav']) echo "<img class ='heart' id='heart". $row['songId']."' src = 'assets/images/icon/close-heart.png'>";
+                    else echo "<img class ='heart' id ='heart".$row['songId']."' src = 'assets/images/icon/open-heart.webp'>";
+                    echo "</div>
 				</li>";
                 $i++;
 		}
         echo "</ul>";
         ?>
-<script>
-    var audio;
-    var plays;
-    
-    $('.PlayButton').on("click", function(event){
-        
-        var id = "Audio" + event.target.id;
-        audio = document.getElementById(id);
+<script src = "includes/PlayAndLikeSong.js"></script>
 
-        if(audio.paused){
-            $('.Audio').each(function () {
-                if (!this.paused &&  this.duration > 0) {
-                this.pause();
-                id = (this.id).substring(5);
-                console.log("id of song that was playing = " + id);
-                var playbutton = document.getElementById(id);
-                playbutton.src = "assets/images/icon/pause.png";
-                playbutton.style.opacity = "20%";
-                }
-                });
-            audio.play();
-            event.target.src= "assets/images/icon/play.png";
-            event.target.style.opacity = "60%";
-        }
-        else {
-            audio.pause();
-            event.target.src= "assets/images/icon/pause.png";
-            event.target.style.opacity = "20%";
-        }
-        if(audio.currentTime === 0) {up(event.target.id);}; 
-    });
-
-    function up(id){
-        $.post("includes/updateStreams.php", {songId: id});
-
-    };
-
-</script>
 <style>
                     .tracklistRow {
                         height: 5vh;
@@ -125,7 +95,11 @@
                     #songs:hover{
                         border: outset;
                     }
-                    
+                    .heart {
+                        width: 35px;
+                        cursor: pointer;
+                        
+                    }
                     .tracklistRow span {
                         
                         color: #939393;
@@ -164,7 +138,7 @@
                     }
                     
                     .tracklistRow .trackDuration {
-                        width: 12%;
+                        width: 9%;
                         float: left;
                         text-align: right;
                     }
