@@ -5,7 +5,7 @@ if(isset($_POST['loginbtn'])) {
 	$username = $_POST['username'];
     $pass = $_POST['pass'];
     
-    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$pass'";
+    $query = "SELECT * FROM users WHERE username = ". "'".$username."'"." AND password = "."'".$pass."'";
     $result = mysqli_query($con, $query);
     if(mysqli_num_rows($result) == NULL) {
         echo "";

@@ -1,6 +1,13 @@
-
 <?php include('includes/header.php');
-?>
+    ?><script>
+    $(document).ready(function(){
+        $.post('includes/CreateLikedSongIfNotExist.php', {user: <?php echo $_SESSION['userId'] ?>}, function(done){
+            alert(done);}); consol.log('ok');
+    });
+    <script>
+
+
+
     
     <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;"></h2>
     <div class="gridViewContainer" style="text-align: center;">

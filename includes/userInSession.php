@@ -1,13 +1,23 @@
 <?php include('mysqlConnection.php'); 
     
-    if(isset($_SESSION['user']) && isset($_SESSION['PlaylistId']) ) {
-        echo "<script> console.log(".$_SESSION['user']."); </script>";
+    // = "Hani";
+    if(isset($_SESSION['username'])) {
+        $artistifia_username = $_SESSION['username'];
+        $q = mysqli_query($con, "SELECT id FROM users WHERE username =\"". $_SESSION['username']."\"");
+        if(!isset($_SESSION['userId'])){
+          $_SESSION['userId'] = mysqli_fetch_array($q, MYSQLI_ASSOC)['id'];  
+          $artistifia_userID = $_SESSION['userId'];
+        }
+        
+        //$q = mysqli_query($con, "SELECT id FROM playlist WHERE owner =". $_SESSION['userId']." AND
+            //name = 'Liked Song'");
+        //$_SESSION['PlaylistId']= mysqli_fetch_array($q, MYSQLI_ASSOC)['id'];
+        //echo "<script> console.log(".$_SESSION['PlaylistId']."); </script>";
+        //echo "<script> console.log(".$_SESSION['userId']."); </script>";
     }
     else {
-        $_SESSION['user']=1;
-        $q = mysqli_query($con, "SELECT playlist.id FROM playlist WHERE playlist.owner =". $_SESSION['user']." AND
-         playlist.name = 'Liked Song'");
-        $_SESSION['PlaylistId']= mysqli_fetch_array($q, MYSQLI_ASSOC)['id'];
-        console.log($_SESSION['PlaylistId']);
+            header('location: login.php');
         }
 ?>
+
+

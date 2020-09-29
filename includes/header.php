@@ -1,6 +1,5 @@
 <!doctype html>
-<?php include('includes/mysqlConnection.php');
-    include('includes/userInSession.php');
+<?php include('includes/userInSession.php');
 ?>
 <html>
 <head>
@@ -40,7 +39,7 @@ history.pushState(null, null, url);
         </nav>
         <div class="padder"></div>
         <a href="#"><button class="account"><img src="assets/images/icon/00_account.png"></button></a>
-        <a href="#" class="username"><?php echo $_SESSION['username']; ?></a>
+        <a href="#" class="username"><?php echo $_SESSION['userId']; ?></a>
         <a href="logout.php"><button class="logout_btn">Log Out</button></a>
 </header>
 

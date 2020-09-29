@@ -57,9 +57,13 @@ if(isset($_POST['regbtn'])) {
   if(count($errors) == 0) {
     $password = md5($pass);
 
-    $query = "INSERT INTO users (email, username, password, first_name, last_name) VALUES ('$email', '$username', '$password', '$fname', '$lname')";
+    $query = "INSERT INTO users (email, username, password, first_name, last_name) VALUES ('".$email."', '".$username. "', '".$password."',
+    '".$fname."', '".$lname."')";
     mysqli_query($con, $query);
     $_SESSION['username'] = $username;
+    $q = mysqli_query($con, "SELECT id FROM users WHERE username = \"". $_SESSION['username']."\"");
+    echo "<script> console.log(".$_SESSION['userId']."); </script>";
+    
     header('location: index.php');
   }
 
