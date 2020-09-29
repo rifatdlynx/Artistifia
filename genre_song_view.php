@@ -1,4 +1,5 @@
-<?php include('includes/header.php'); ?>
+<?php include('includes/header.php');
+    include('includes/LikedSongs.php'); ?>
     <?php 
     $genre_id = $_GET['genre_id'];
     
