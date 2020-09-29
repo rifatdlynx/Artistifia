@@ -1,40 +1,34 @@
 <?php include('includes/header.php'); ?>
-    <?php 
-    $genre_id = $_GET['genre_id'];
-    
-    $genreQuery = mysqli_query($con, "SELECT name FROM genre WHERE genre.id = ".$genre_id  );
-    $genre = mysqli_fetch_array ($genreQuery,  MYSQLI_ASSOC);
-    
-
+<?php 
     echo"
     <div class=\"entityInfo\"
     style = \"padding: 100px 0px 10px 30px; display: inline-block; width: 100%;\">
 
     <div class=\"rightSection\"
     style = \"width: 100%;  padding: 5px 10px 5px 20px; box-sizing: border-box;\">   
-        <h1 style =\"text-align: center; margin-top: 0px; color: silver\">". $genre['name']. "</h1>
+        <h1 style =\"text-align: center; margin-top: 0px; color: silver\"> Liked Songs</h1>
 		<p role=\"link\" tabindex=\"0\" ? style =\"color: #939393; font-weight: 200;\"></p>
         <p style =\"text-align:center; color: #939393; font-weight: 200;\">";
-        $songQuery = mysqli_query($con, "SELECT count(songs.id) AS sum FROM songs INNER JOIN genre ON songs.genre = genre.id
-                    WHERE songs.genre =". $genre_id);
+        $songQuery = mysqli_query($con, "SELECT count(songs.id) AS sum FROM songs INNER JOIN playlist_songs ON 
+        songs.id = playlist_songs.sid WHERE playlist_songs.pid = ".$_SESSION['PlaylistId']);
         echo mysqli_fetch_array ($songQuery,  MYSQLI_ASSOC)['sum']." songs</p>
 
 	</div>
 
 </div>
 
-
-<div class=\"tracklistContainer\" style=\"padding: 0px 0px 5px 30px\" >
+<div class='tracklistContainer' style=\"padding: 0px 0px 5px 30px;\" >
     <ul class=\"tracklist\" 
-    style=\" background-color: #2b2b2b\">";
-		
-		$songQuery = mysqli_query($con, "SELECT songs.id As songId, songs.title, albums.name AS album, artists.name AS artist, 
-        album_art_path, duration, file_path, CASE WHEN songs.id IN (Select songs.id FROM songs INNER JOIN playlist_songs ON 
-        songs.id = playlist_songs.sid WHERE playlist_songs.pid = ".$_SESSION['PlaylistId'].") THEN True ELSE False END AS Fav FROM songs INNER JOIN albums 
-        ON songs.album = albums.id INNER JOIN artists ON albums.artist = artists. id WHERE 
-        songs.genre =".$genre_id." ORDER BY streams desc");
+    style=\" background-color: #2b2b2b;\">";
         
-        echo "<li class='tracklistRow' style=\"padding: 5px 10px 5px 0px; margin-bottom: 5px; border-top: 1px solid #a0a0a0; border-bottom: 1px solid #a0a0a0;\">
+    
+		$songQuery = mysqli_query($con, "SELECT songs.id As songId, songs.title, songs.featuring_artist, albums.name AS album,
+        artists.name AS artist, album_art_path, duration, file_path, playlist_songs.inOrder FROM songs INNER JOIN albums ON songs.album = albums.id 
+        INNER JOIN artists ON albums.artist = artists. id INNER JOIN playlist_songs ON 
+        songs.id = playlist_songs.sid WHERE playlist_songs.pid = ".$_SESSION['PlaylistId']);
+        
+        echo "<li class='tracklistRow' style=\"padding: 5px 10px 5px 0px; margin-bottom: 5px; 
+        border-top: 1px solid #a0a0a0; border-bottom: 1px solid #a0a0a0;\">
 					<div class='trackCount'>
 						<span class='trackNumber' style=\"padding: 0px 0px 0px 63px;\" > </span>
                     </div>
@@ -73,16 +67,20 @@
 					<div class='trackDuration'\">
 						<span class='duration' style=\"font-size: 15px; \">" . $row['duration'] . "</span>
                     </div>
-                    <div class = 'trackDuration' style = \"padding-top:-2px; margin-top:-5px;\">";
-                    if($row['Fav']) echo "<img class ='heart' id='heart". $row['songId']."' src = 'assets/images/icon/close-heart.png'>";
-                    else echo "<img class ='heart' id ='heart".$row['songId']."' src = 'assets/images/icon/open-heart.webp'>";
-                    echo "</div>
+                    <div class = 'trackDuration' style = \"padding-top:-2px; margin-top:-5px;\">
+                    <img class ='heart' id='heart". $row['songId']."' src = 'assets/images/icon/close-heart.png'>";
+                    "</div>
 				</li>";
                 $i++;
 		}
         echo "</ul>";
         ?>
 <script src = "includes/PlayAndLikeSong.js"></script>
+<script>
+    $('.heart').on("click", function(){
+        location.reload();
+        
+    });</script>
 
 <style>
                     .tracklistRow {
