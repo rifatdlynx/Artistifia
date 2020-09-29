@@ -32,7 +32,6 @@ history.pushState(null, null, url);
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="browse.php">Browse</a></li>
                 <li><a href="search.php">Search</a></li>
                 <li><a href="top_chart.php">Top Charts</a></li>
             </ul>
@@ -52,4 +51,4 @@ history.pushState(null, null, url);
 		<div id="topContainer" style ="min-height: 100%; width: 100%;">
         <?php include('includes/side_nav.php') ?>
 			<div id="mainViewContainer" style ="margin-left: 220px; padding-bottom: 90px; width: calc(100% - 220px);">
-				<div id="mainContent" style = "padding: 0 20px;">
+				<div id="mainContent" style = "padding: 0 60px;">

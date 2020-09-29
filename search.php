@@ -3,16 +3,16 @@
 
 <body>
     <?php include('includes/header.php') ?>
-  
-    <form action="search_result.php" method = "post"> 
-    <div class="wrapper">
+
+    <form action="search_result.php" method = "post">
+    <div class="wrapper" style="padding-right:50px;height:8vh;">
         <div class="search_box">
             <input type="text" name="search" placeholder="Looking For Somethings...?" onfocus="this.value = this.value">
             <input type="image" src="assets/images/icon/search.png" alt="search_submit" class="fa-search">
         </div>
     </div>
     </form>
-    
-   
-      
+
+
+
 </body>
