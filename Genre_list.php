@@ -8,7 +8,7 @@
     ?>
     
     <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;"></h2>
-    <div class="gridViewContainer" style="margin-left:30px;">
+    <div class="gridViewContainer" style="margin-left:30px; text-align: center;">
 
     <?php
         $genreQuery = mysqli_query($con, "SELECT Genre.id, Genre.name FROM Genre INNER JOIN Songs ON Songs.genre = Genre.id GROUP BY genre Order By sum(songs.id) desc");

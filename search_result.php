@@ -13,7 +13,7 @@
     <form action="search_result.php" method = "post">
     <div class="wrapper" style="padding-right:50px;height:8vh;">
         <div class="search_box">
-            <input type="text" name="search" placeholder= "<?php echo "Search result for '" . $term . "'" ; ?>">
+            <input type="text" name="search" placeholder= "<?php echo "Search result for '" . $term . "'" ; ?>"  style="margin-top:60px;">
             <input type="image" src="assets/images/icon/search.png" alt="search_submit" class="fa-search">
         </div>
     </div>
@@ -22,7 +22,7 @@
     <? php if($term == "") exit(); ?>
 
     <div class="tracklistContainer" style="padding-top:50px;">
-	<h2 style="color: #FFF; background-color: #2b2b2b; padding-left:60px;">Songs</h2>
+	<h2 style="color: #FFF; background-color: #2b2b2b; padding-left:60px; padding-top:70px;">Songs</h2>
 	<ul class="tracklist">
 
     <?php
