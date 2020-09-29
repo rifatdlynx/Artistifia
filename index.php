@@ -1,15 +1,5 @@
 
 <?php include('includes/header.php');
-
-    session_start();
-    if(!isset($_SESSION['username'])) {
-        header('location: login.php');
-    }
-    /*if (isset($_GET['logout'])) {
-		session_destroy();
-		unset($_SESSION['username']);
-		header("location: login.php");
-	}*/
 ?>
     
     <h2 id = pageHeading style="text-align: left; padding-top: 90px; padding-left:70px; padding-bottom:20px; color: silver;"></h2>
