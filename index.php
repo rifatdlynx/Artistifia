@@ -1,20 +1,19 @@
 <link rel="stylesheet" href="assets/css/top_chart.css">
-
 <?php include('includes/header.php');
+    ?><script>
+    $(document).ready(function(){
+        $.post('includes/CreateLikedSongIfNotExist.php', {user: <?php echo $_SESSION['userId'] ?>}, function(done){
+            alert(done);}); consol.log('ok');
+    });
+    <script>
 
-    //session_start();
-    if(!isset($_SESSION['username'])) {
-        header('location: login.php');
-    }
-    /*if (isset($_GET['logout'])) {
-		session_destroy();
-		unset($_SESSION['username']);
-		header("location: login.php");
-	}*/
-?>
 
-    <h2 id = pageHeading style="text-align: left; padding-top: 30px; padding-left:30px; padding-bottom:20px; color: silver;">You May Like...</h2>
-    <div class="gridViewContainer" style="margin-left:30px;">
+
+    
+    <h2 id = pageHeading style="text-align: left; padding-top: 30px; padding-left:70px; padding-bottom:20px; color: silver;">You May Like...</h2>
+    <div class="gridViewContainer" style="text-align: center; margin-left:30px;">
+    
+
 
     <?php
     /*$songQuery = mysqli_query($con, "SELECT songID FROM Listening_History ORDER BY dateListened desc Limit 7");

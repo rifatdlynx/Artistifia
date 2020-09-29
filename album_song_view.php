@@ -36,7 +36,8 @@
     style=\" background-color: #2b2b2b\">";
 		
 		$songQuery = mysqli_query($con, "SELECT *, CASE WHEN songs.id IN (Select songs.id FROM songs INNER JOIN playlist_songs
-        ON songs.id = playlist_songs.sid WHERE playlist_songs.pid = ".$_SESSION['PlaylistId'].") THEN True ELSE False END AS Fav  
+        ON songs.id = playlist_songs.sid WHERE playlist_songs.pid = (SELECT id FROM playlist WHERE owner ="
+        . $_SESSION['userId']." AND name = 'Liked Song')) THEN True ELSE False END AS Fav  
         FROM songs WHERE album =". $album_id." ORDER BY track_no");
         
         echo "<li class='tracklistRow' style=\"padding: 5px 5px 5px 0px; margin-bottom: 5px; border-top: 1px solid #a0a0a0; border-bottom: 1px solid #a0a0a0;\">

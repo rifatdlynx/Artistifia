@@ -10,7 +10,8 @@
 		<p role=\"link\" tabindex=\"0\" ? style =\"color: #939393; font-weight: 200;\"></p>
         <p style =\"text-align:center; color: #939393; font-weight: 200;\">";
         $songQuery = mysqli_query($con, "SELECT count(songs.id) AS sum FROM songs INNER JOIN playlist_songs ON 
-        songs.id = playlist_songs.sid WHERE playlist_songs.pid = ".$_SESSION['PlaylistId']);
+        songs.id = playlist_songs.sid WHERE playlist_songs.pid = (SELECT id FROM playlist WHERE owner ="
+        .$_SESSION['userId']." AND name = 'Liked Song')");
         echo mysqli_fetch_array ($songQuery,  MYSQLI_ASSOC)['sum']." songs</p>
 
 	</div>
@@ -25,7 +26,8 @@
 		$songQuery = mysqli_query($con, "SELECT songs.id As songId, songs.title, songs.featuring_artist, albums.name AS album,
         artists.name AS artist, album_art_path, duration, file_path, playlist_songs.inOrder FROM songs INNER JOIN albums ON songs.album = albums.id 
         INNER JOIN artists ON albums.artist = artists. id INNER JOIN playlist_songs ON 
-        songs.id = playlist_songs.sid WHERE playlist_songs.pid = ".$_SESSION['PlaylistId']);
+        songs.id = playlist_songs.sid WHERE playlist_songs.pid = (SELECT id FROM playlist WHERE owner ="
+        .$_SESSION['userId']." AND name = 'Liked Song')");
         
         echo "<li class='tracklistRow' style=\"padding: 5px 10px 5px 0px; margin-bottom: 5px; 
         border-top: 1px solid #a0a0a0; border-bottom: 1px solid #a0a0a0;\">

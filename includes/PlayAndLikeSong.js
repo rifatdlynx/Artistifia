@@ -55,15 +55,25 @@
         id = (event.target.id).substring(5);
         console.log(event.target.id);
         var element = document.getElementById(event.target.id);
-        console.log(this.src); 
+        
+        
         if(element.src == "http://localhost/artistifia/assets/images/icon/close-heart.png"){
             //already like
-            $.post("includes/LikeAndUnlikeSongs.php", {songId: id, fun: "unlike"});
+            console.log(user);
+            console.log("something else");
+            $.post("includes/LikeAndUnlikeSongs.php", {songId: id, fun: "unlike"}, function(data){
+                alert(data);
+            });
             element.src = 'assets/images/icon/open-heart.webp';
         }
-        else {
-            $.post("includes/LikeAndUnlikeSongs.php", {songId: id, fun: "like"});
+        else if(element.src == "http://localhost/artistifia/assets/images/icon/open-heart.png") {
+            $.post("includes/LikeAndUnlikeSongs.php", {songId: id, fun: "like"}, function(data){
+                alert(data);
+            });
             element.src = "assets/images/icon/close-heart.png";
         }
+        else console.log("faulty");
         
     });
+
+    
